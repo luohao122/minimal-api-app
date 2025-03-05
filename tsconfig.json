@@ -32,6 +32,7 @@
     "baseUrl": "." /* Specify the base directory to resolve non-relative module names. */,
     "paths": {
       "@services/*": ["src/services/*"],
+      "@middlewares/*": ["src/middlewares/*"],
       "@controllers/*": ["src/controllers/*"],
       "@routes/*": ["src/routes/*"],
       "@utils/*": ["src/utils/*"],

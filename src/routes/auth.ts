@@ -1,11 +1,11 @@
 import express from "express";
 
+import { createUser } from "@controllers/signup";
+
 const router = express.Router();
 
 export function authRoutes() {
-  router.post("/sign-up", (req, res) => {
-    console.log("reached sign up route");
-  });
+  router.post("/sign-up", createUser);
 
   return router;
 }
