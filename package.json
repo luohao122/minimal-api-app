@@ -2,10 +2,10 @@
   "name": "minimal-api-app",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/app.js",
+  "main": "app.js",
   "scripts": {
     "dev": "nodemon -r tsconfig-paths/register src/app.ts",
-    "start": "node src/app.js",
+    "start": "node ./dist/src/app.js",
     "build": "tsc --project tsconfig.json && tsc-alias -p tsconfig.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
