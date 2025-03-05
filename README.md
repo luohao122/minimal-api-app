@@ -59,8 +59,8 @@ npm start
 ### **Auth Routes**
 | Method | Endpoint        | Description |
 |--------|----------------|-------------|
-| POST   | `/signup`      | Register a new user |
-| POST   | `/login`       | Authenticate user and return JWT |
+| POST   | `/sign-up`      | Register a new user |
+| POST   | `/sign-in`       | Authenticate user and return JWT |
 
 ### **Protected Routes**
 | Method | Endpoint        | Description |
