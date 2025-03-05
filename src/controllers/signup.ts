@@ -1,4 +1,8 @@
 import { NextFunction, Request, Response } from "express";
+import jwt from "jsonwebtoken";
+
+import { USERS_DB } from "@app/app";
+import { hashPassword } from "@utils/helpers";
 
 export const createUser = async (
   req: Request,
@@ -6,7 +10,6 @@ export const createUser = async (
   next: NextFunction
 ) => {
   try {
-    console.log(req);
     const { name, email, password } = req.body;
 
     if (!name.length || !email.length || !password.length) {
@@ -24,6 +27,17 @@ export const createUser = async (
       validationError.message = "Password must be at least 12 characters";
       return next(validationError);
     }
+    const hashedPassword = await hashPassword(password);
+    const newUser = {
+      name,
+      email,
+      password: hashedPassword,
+    };
+    USERS_DB.push(newUser);
+    const token = jwt.sign({ name, email }, process.env.JWT_SECRET_TOKEN_KEY!, {
+      expiresIn: "1h",
+    });
+    res.json({ token, message: "User created", newUser });
   } catch (error) {
     next(error);
   }
