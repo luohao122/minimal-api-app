@@ -1,6 +1,6 @@
 import http from "http";
 
-import { Application } from "express";
+import { Application, json } from "express";
 import dotenv from "dotenv";
 import { appRoutes } from "@app/routes";
 
@@ -10,7 +10,12 @@ const PORT = process.env.PORT;
 
 export const start = (app: Application) => {
   startServer(app);
+  standardMiddleware(app);
   routesMiddleware(app);
+};
+
+const standardMiddleware = (app: Application) => {
+  app.use(json({ limit: "200mb" }));
 };
 
 const routesMiddleware = (app: Application) => {
