@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon -r tsconfig-paths/register src/app.ts",
     "start": "node src/app.js",
-    "build": "npx tsc",
+    "build": "tsc --project tsconfig.json && tsc-alias -p tsconfig.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/luohao122/minimal-api-app#readme",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "tsconfig-paths": "^4.2.0"
